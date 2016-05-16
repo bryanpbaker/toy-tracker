@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="groundUpApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The Ground Up ng</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./dist/css/main.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="dist/js/angular-ui-router.min.js"></script>
+        <script src="js/app/app.js"></script>
+        <script src="dist/js/controllers.min.js"></script>
+        <script src="dist/js/directives.min.js"></script>
+        <script src="dist/js/filters.min.js"></script>
+        <script src="dist/js/services.min.js"></script>
+    </head>
+    <body>
+        
+        <!-- Import your header partial -->
+        <div ng-include="'partials/header.html'"></div>
+
+
+        <div class="container" ui-view></div>
+
+        <!-- Import your footer partial -->
+        <div ng-include="'partials/footer.html'"></div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </body>
+</html>

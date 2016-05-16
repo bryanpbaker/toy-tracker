@@ -1,0 +1,28 @@
+.content-block {
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.header h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.header input[type="text"] {
+  width: 50%;
+}
+
+.header h3 strong {
+  color: #D35400;
+}
+
+.header .nav {
+  margin-top: 40px;
+}
+
+.home {
+  background: #446CB3;
+  color: white;
+  padding: 15px;
+}

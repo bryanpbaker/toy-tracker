@@ -1,0 +1,14 @@
+<header class="header">
+    <div class="container">
+        <div ng-controller="testController">
+            <h1>The Ground Up ng</h1>
+            <label for="messageInput">Type a test message here:</label>
+            <input class="form-control" type="text" ng-model="message" id="messageInput" placeholder="Your message...">
+            <h3>...and it will display here <i class="fa fa-arrow-circle-right"></i> <strong>{{ message }}</strong></h3>
+        </div>
+        <ul class="nav nav-tabs">
+        	<li><a href="#/">Home Page</a></li>
+        	<li><a href="#/about">About Page</a></li>
+        </ul>
+    </div>
+</header>
