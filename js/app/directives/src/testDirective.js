@@ -1,3 +1,3 @@
-superheroFinder.directive('testDirective', function() {
+toyTrackerApp.directive('testDirective', function() {
 	
 });

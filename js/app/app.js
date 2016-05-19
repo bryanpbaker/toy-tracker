@@ -1,6 +1,6 @@
-var groundUpApp = angular.module('groundUpApp', ['ui.router']);
+var toyTrackerApp = angular.module('toyTrackerApp', ['ui.router']);
 
-groundUpApp.config(function($stateProvider, $urlRouterProvider) {
+toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/");

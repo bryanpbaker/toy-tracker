@@ -1,6 +1,3 @@
-toyTrackerApp.controller('GlobalController', ['$scope', function($scope) {
-
-}]);
 toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope, $http) {
 
 	// set the default search term

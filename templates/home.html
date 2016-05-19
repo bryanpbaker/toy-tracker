@@ -1,4 +1,7 @@
 <div class="home">
-	<h2>Hello Home View!</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, aut sint deserunt quibusdam recusandae voluptatum illum nesciunt, odio deleniti aliquid at assumenda consectetur molestiae. Maxime tempore nesciunt, sequi possimus laudantium nostrum itaque eos dicta voluptatum facere, deleniti neque. Omnis, voluptates.</p>
+	<div class="container" ng-controller="SearchController">
+		<input type="text" ng-model="searchTerm" ng-model-options="{ debounce: 500 }" placeholder="Find a toy...">
+		<br>
+		<h2 ng-repeat="toy in toys">{{toy.name}}</h2>
+	</div>
 </div>
