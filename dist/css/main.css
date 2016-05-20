@@ -67,6 +67,12 @@
   margin-bottom: 50px;
 }
 
+.toy-card .toy-card-inner {
+  border: 1px solid #999;
+  border-radius: 15px;
+  padding: 20px;
+}
+
 .toy-card .thumbnail-image {
   background-position: center center !important;
   background-repeat: no-repeat !important;
