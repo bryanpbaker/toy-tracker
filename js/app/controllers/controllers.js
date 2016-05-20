@@ -12,7 +12,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope
 
 	function fetch(){
 
-		$http.jsonp('http://api.walmartlabs.com/v1/search?apiKey=' + $scope.publicKey + '&query=' + $scope.searchTerm + '&categoryId=4171_4172_1156794&numItems=25&callback=JSON_CALLBACK')
+		$http.jsonp('http://api.walmartlabs.com/v1/search?apiKey=' + $scope.publicKey + '&query=' + $scope.searchTerm + '&categoryId=4171_4172_1156794&numItems=25&sort=bestseller&callback=JSON_CALLBACK')
 		.then(function(response){ 
 			$scope.toys = response.data.items;
 

@@ -1,7 +1,16 @@
-<div class="home">
-	<div class="container" ng-controller="SearchController">
+<div class="home" ng-controller="SearchController">
+	<div class="container">
 		<input type="text" ng-model="searchTerm" ng-model-options="{ debounce: 500 }" placeholder="Find a toy...">
 		<br>
-		<h2 ng-repeat="toy in toys">{{toy.name}}</h2>
+	</div>
+
+	<div class="container toy-cards">
+		<div class="col-xs-12 col-sm-4 col-md-3 toy-card" ng-repeat="toy in toys">
+			<div class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');"></div>
+			<h5>{{toy.name}}</h5>
+			<b>${{toy.salePrice}}</b>
+			<img src="{{toy.customerRatingImage}}" alt="">
+			<p>{{toy.shortDescription | limitTo: 100 }}...</p>
+		</div>
 	</div>
 </div>
