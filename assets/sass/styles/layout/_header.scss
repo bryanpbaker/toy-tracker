@@ -1,21 +1,41 @@
 .header{
-	h1{
-		font-size: 3.5em;
-		font-weight: bold;
-		margin-bottom: 40px;
-	}
+	background: $primary;
+	height: $navbar-height;
 
-	input[type="text"]{
-		width: 50%;
-	}
+	.navbar{
+		height: $navbar-height;
+		margin: 0;
+		
+		.logo{
+			height: $navbar-height;
+			a{
+				@include vertical-align-element();
+				color: white;
+				font-size: 1.75em;
 
-	h3{
-		strong{
-			color: $secondary;
+				&:hover{
+					text-decoration: none;
+				}
+			}
 		}
-	}
 
-	.nav{
-		margin-top: 40px;
+		.main-nav{
+			height: 100%;
+
+			ul{
+				@include vertical-align-element();
+				margin-bottom: 0;
+			}
+
+			li{
+				display: inline-block;
+				margin-left: 20px;
+				text-align: right;
+
+				a{
+					color: white;
+				}
+			}
+		}
 	}
 }

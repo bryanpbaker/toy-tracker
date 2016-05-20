@@ -3,22 +3,53 @@
   padding-top: 25px;
 }
 
-.header h1 {
-  font-size: 3.5em;
-  font-weight: bold;
-  margin-bottom: 40px;
+.header {
+  background: #4183d7;
+  height: 80px;
 }
 
-.header input[type="text"] {
-  width: 50%;
+.header .navbar {
+  height: 80px;
+  margin: 0;
 }
 
-.header h3 strong {
-  color: #D35400;
+.header .navbar .logo {
+  height: 80px;
 }
 
-.header .nav {
-  margin-top: 40px;
+.header .navbar .logo a {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1.75em;
+}
+
+.header .navbar .logo a:hover {
+  text-decoration: none;
+}
+
+.header .navbar .main-nav {
+  height: 100%;
+}
+
+.header .navbar .main-nav ul {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-bottom: 0;
+}
+
+.header .navbar .main-nav li {
+  display: inline-block;
+  margin-left: 20px;
+  text-align: right;
+}
+
+.header .navbar .main-nav li a {
+  color: white;
 }
 
 .home {
@@ -30,6 +61,10 @@
   flex-wrap: wrap;
   padding-bottom: 50px;
   padding-top: 50px;
+}
+
+.toy-card {
+  margin-bottom: 50px;
 }
 
 .toy-card .thumbnail-image {

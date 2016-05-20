@@ -1,0 +1,27 @@
+
+@mixin semi-trans-background($color, $opacity: 0.3) {
+	background: $color;
+	background: rgba($color, $opacity);
+}
+
+@mixin vertical-align-element(){
+	display: block;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin horizontal-align-element(){
+	display: block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);	
+}
+
+@mixin center-center-element(){
+	display: block;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);	
+}

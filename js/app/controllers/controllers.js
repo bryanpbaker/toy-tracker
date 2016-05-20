@@ -4,7 +4,7 @@ toyTrackerApp.controller('GlobalController', ['$scope', function($scope) {
 toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope, $http) {
 
 	// set the default search term
-	$scope.searchTerm = '';
+	$scope.searchTerm = 'Action Figure';
 
 	// walmart api public key
 	$scope.publicKey = 'bd3q9g624ym5mrk9ad75ntfw';
