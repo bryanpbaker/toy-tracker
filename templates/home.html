@@ -5,7 +5,13 @@
 		<br>
 	</div>
 
-	<div class="container toy-cards-container">
+	<div class="loader" ng-show="loading">
+		<h5>Searching for {{searchTerm}}...</h5>
+		<br>
+		<i class="fa fa-refresh fa-spin fa-3x fa-fw spin-animate"></i>
+	</div>
+
+	<div class="container toy-cards-container" ng-hide="loading">
 		<toy-card></toy-card>
 	</div>
 </div>

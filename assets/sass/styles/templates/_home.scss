@@ -2,7 +2,7 @@
 	padding: 15px;
 
 	.intro-section{
-		padding-bottom: 100px;
+		padding-bottom: 50px;
 		padding-top: 100px;
 
 		input[type="text"]{
@@ -15,6 +15,29 @@
 
 	h1{
 		text-align: center;
+	}
+}
+
+.loader{
+	font-size: 3em;
+	position: relative;
+	text-align: center;
+
+	.spin-animate.ng-hide {
+	  opacity: 0;
+	}
+
+	.spin-animate.ng-hide-remove,
+	.spin-animate.ng-hide-add {
+	  display: block !important;
+	}
+
+	.spin-animate.ng-hide-remove {
+	  transition: all linear 1000ms;
+	}
+
+	.spin-animate.ng-hide-add {
+	  transition: all linear 500ms;
 	}
 }
 

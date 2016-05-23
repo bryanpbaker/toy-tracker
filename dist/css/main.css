@@ -62,7 +62,7 @@ h1 {
 }
 
 .home .intro-section {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   padding-top: 100px;
 }
 
@@ -75,6 +75,29 @@ h1 {
 
 .home h1 {
   text-align: center;
+}
+
+.loader {
+  font-size: 3em;
+  position: relative;
+  text-align: center;
+}
+
+.loader .spin-animate.ng-hide {
+  opacity: 0;
+}
+
+.loader .spin-animate.ng-hide-remove,
+.loader .spin-animate.ng-hide-add {
+  display: block !important;
+}
+
+.loader .spin-animate.ng-hide-remove {
+  transition: all linear 1000ms;
+}
+
+.loader .spin-animate.ng-hide-add {
+  transition: all linear 500ms;
 }
 
 .toy-cards-container {
