@@ -1,3 +1,0 @@
-toyTrackerApp.directive('testDirective', function() {
-	
-});

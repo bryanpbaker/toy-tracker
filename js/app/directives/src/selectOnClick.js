@@ -1,6 +1,3 @@
-toyTrackerApp.directive('equalHeightDiv', function ($window, $timeout) {
-
-});
 toyTrackerApp.directive('selectOnClick', ['$window', function ($window) {
     return {
         restrict: 'A',
@@ -14,11 +11,3 @@ toyTrackerApp.directive('selectOnClick', ['$window', function ($window) {
         }
     };
 }]);
-toyTrackerApp.directive('toyCard', function() {
-
-    return {
-        restrict: 'E',
-        templateUrl: 'partials/toy-card.html'
-    }
-
-});

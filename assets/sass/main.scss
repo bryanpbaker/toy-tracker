@@ -4,9 +4,16 @@
 @import "styles/custom-globals/utility";
 
 
-// Import Layout Elements
+// Import Element Styles
+@import "styles/elements/typography";
+
+// Import Layout Styles
 @import "styles/layout/header";
 
 
 // Import Template Styles
 @import "styles/templates/home";
+
+
+// Import Module Styles
+@import "styles/modules/toy-card";

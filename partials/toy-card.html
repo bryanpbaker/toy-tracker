@@ -1,0 +1,9 @@
+<div class="col-xs-12 col-sm-6 col-md-4 toy-card" ng-repeat="toy in toys" equal-height-div>
+	<div class="toy-card-inner">
+		<div class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');"></div>
+		<h5><b>{{toy.name}}</b></h5>
+		<b>${{toy.salePrice}}</b>
+		<br>
+		<img src="{{toy.customerRatingImage}}" alt="">
+	</div>
+</div>

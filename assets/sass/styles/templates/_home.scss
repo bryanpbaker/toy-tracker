@@ -1,27 +1,24 @@
 .home{
 	padding: 15px;
+
+	.intro-section{
+		padding-bottom: 100px;
+		padding-top: 100px;
+
+		input[type="text"]{
+			color: #999;
+	    	font-size: 1.5em;
+	    	height: 60px;
+	    	text-align: center;
+		}
+	}
+
+	h1{
+		text-align: center;
+	}
 }
 
-.toy-cards{
-	display: flex;
-	flex-wrap: wrap;
+.toy-cards-container{
 	padding-bottom: 50px;
 	padding-top: 50px;
-}
-
-.toy-card{
-	margin-bottom: 50px;
-
-	.toy-card-inner{
-		border: 1px solid #999;
-		border-radius: 15px;	
-		padding: 20px;
-	}
-
-	.thumbnail-image{
-		background-position: center center !important;
-		background-repeat: no-repeat !important;
-		background-size: auto 100%;
-		height: 150px;		
-	}
 }

@@ -1,19 +1,11 @@
 <div class="home" ng-controller="SearchController">
-	<div class="container">
-		<h1>Find Toys!</h1>
-		<input class="form-control" type="text" ng-model="searchTerm" ng-model-options="{ debounce: 500 }" placeholder="Find a toy...">
+	<div class="container intro-section">
+		<h1>Find New Toys</h1>
+		<input class="col-xs-12 col-md-6 col-md-offset-3" type="text" ng-model="searchTerm" ng-model-options="{ debounce: 500 }" placeholder="Find a toy..." select-on-click>
 		<br>
 	</div>
 
-	<div class="container toy-cards">
-		<div class="col-xs-12 col-sm-6 col-md-4 toy-card" ng-repeat="toy in toys">
-			<div class="toy-card-inner">
-				<div class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');"></div>
-				<h5><b>{{toy.name}}</b></h5>
-				<b>${{toy.salePrice}}</b>
-				<br>
-				<img src="{{toy.customerRatingImage}}" alt="">
-			</div>
-		</div>
+	<div class="container toy-cards-container">
+		<toy-card></toy-card>
 	</div>
 </div>

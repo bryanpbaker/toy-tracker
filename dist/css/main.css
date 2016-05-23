@@ -3,6 +3,11 @@
   padding-top: 25px;
 }
 
+h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+
 .header {
   background: #4183d7;
   height: 80px;
@@ -56,20 +61,36 @@
   padding: 15px;
 }
 
-.toy-cards {
-  display: flex;
-  flex-wrap: wrap;
+.home .intro-section {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+.home .intro-section input[type="text"] {
+  color: #999;
+  font-size: 1.5em;
+  height: 60px;
+  text-align: center;
+}
+
+.home h1 {
+  text-align: center;
+}
+
+.toy-cards-container {
   padding-bottom: 50px;
   padding-top: 50px;
 }
 
 .toy-card {
   margin-bottom: 50px;
+  min-height: 310px;
 }
 
 .toy-card .toy-card-inner {
   border: 1px solid #999;
   border-radius: 15px;
+  min-height: 296px;
   padding: 20px;
 }
 
