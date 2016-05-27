@@ -1,6 +1,3 @@
-toyTrackerApp.directive('equalHeightDiv', function ($window, $timeout) {
-
-});
 toyTrackerApp.directive('selectOnClick', ['$window', function ($window) {
     return {
         restrict: 'A',
