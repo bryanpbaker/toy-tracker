@@ -48,10 +48,18 @@ a:hover, a:focus, a:active, a:visited {
   transform: translateY(-50%);
   color: white;
   font-size: 1.75em;
+  font-weight: bold;
+  letter-spacing: -2px;
 }
 
 .header .navbar .logo a:hover {
   text-decoration: none;
+}
+
+.header .navbar .logo .robot {
+  height: 40px;
+  margin-right: 5px;
+  margin-top: -5px;
 }
 
 .header .navbar .main-nav {
