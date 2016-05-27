@@ -1,6 +1,7 @@
 // Import Custom Globals
 @import "styles/custom-globals/custom-variables";
 @import "styles/custom-globals/custom-mixins";
+@import "styles/custom-globals/scaffolding";
 @import "styles/custom-globals/utility";
 
 
@@ -12,6 +13,7 @@
 
 
 // Import Template Styles
+@import "styles/templates/search";
 @import "styles/templates/home";
 
 

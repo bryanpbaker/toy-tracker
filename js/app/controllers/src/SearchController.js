@@ -1,4 +1,4 @@
-toyTrackerApp.controller('SearchController', ['$scope', '$http', '$angul' function($scope, $http) {
+toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope, $http) {
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
@@ -14,9 +14,11 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', '$angul' functi
 	function fetch(){
 		$scope.loading = true;
 
-		$http.jsonp('http://api.walmartlabs.com/v1/search?apiKey=' + $scope.publicKey + '&query=' + $scope.searchTerm + '&categoryId=4171_4172_1156794&numItems=25&sort=bestseller&callback=JSON_CALLBACK')
+		$http.jsonp('http://api.walmartlabs.com/v1/search?apiKey=' + $scope.publicKey + '&query=' + $scope.searchTerm + '&categoryId=4171&facets=on&facet.filter=gender:Boys&numItems=25&sort=bestseller&callback=JSON_CALLBACK')
 		.then(function(response){ 
 			$scope.toys = response.data.items;
+
+			console.log(response);
 		})
 		.finally(function() {
 			$scope.loading = false;

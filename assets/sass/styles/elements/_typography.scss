@@ -1,6 +1,18 @@
 // Typography Styles
 
 h1{
-	font-size: 4em;
+	font-size: 4.65em;
 	margin-bottom: 20px;
+}
+
+p{
+	font-size: 1.4em;
+	line-height: 1.55em;
+}
+
+a{
+	&:hover, &:focus, &:active, &:visited{
+		opacity: .85;
+		text-decoration: none;
+	}
 }

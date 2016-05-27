@@ -1,0 +1,44 @@
+.search{
+	padding: 15px;
+
+	.intro-section{
+		input[type="text"]{
+			color: #999;
+	    	font-size: 1.5em;
+	    	height: 60px;
+	    	text-align: center;
+		}
+	}
+
+	h1{
+		text-align: center;
+	}
+}
+
+.loader{
+	font-size: 3em;
+	position: relative;
+	text-align: center;
+
+	.spin-animate.ng-hide {
+	  opacity: 0;
+	}
+
+	.spin-animate.ng-hide-remove,
+	.spin-animate.ng-hide-add {
+	  display: block !important;
+	}
+
+	.spin-animate.ng-hide-remove {
+	  transition: all linear 1000ms;
+	}
+
+	.spin-animate.ng-hide-add {
+	  transition: all linear 500ms;
+	}
+}
+
+.toy-cards-container{
+	padding-bottom: 50px;
+	padding-top: 50px;
+}

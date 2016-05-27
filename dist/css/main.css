@@ -1,11 +1,30 @@
+html {
+  font-size: 16px;
+}
+
 .content-block {
   padding-bottom: 25px;
   padding-top: 25px;
 }
 
+.intro-section {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
 h1 {
-  font-size: 4em;
+  font-size: 4.65em;
   margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.4em;
+  line-height: 1.55em;
+}
+
+a:hover, a:focus, a:active, a:visited {
+  opacity: .85;
+  text-decoration: none;
 }
 
 .header {
@@ -57,23 +76,18 @@ h1 {
   color: white;
 }
 
-.home {
+.search {
   padding: 15px;
 }
 
-.home .intro-section {
-  padding-bottom: 50px;
-  padding-top: 100px;
-}
-
-.home .intro-section input[type="text"] {
+.search .intro-section input[type="text"] {
   color: #999;
   font-size: 1.5em;
   height: 60px;
   text-align: center;
 }
 
-.home h1 {
+.search h1 {
   text-align: center;
 }
 
@@ -103,6 +117,10 @@ h1 {
 .toy-cards-container {
   padding-bottom: 50px;
   padding-top: 50px;
+}
+
+.home .intro-section {
+  text-align: center;
 }
 
 .toy-card {
