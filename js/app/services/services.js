@@ -34,9 +34,11 @@ toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseAr
 			reviewImage: toyReviewImage
 		});
 
-		console.log(this.wishlist);
-
 		console.log( toyName + ' has been added to your wishlist!');
 	};
+
+	this.removeFromWishlist = function(id){
+		this.wishlist.$remove(id);
+	}
 
 }]);

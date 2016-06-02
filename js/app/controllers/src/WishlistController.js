@@ -3,4 +3,9 @@ toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wis
 		$scope.wishlist = wishlistService.wishlist;
 
 
+		$scope.removeFromWishlist = function(id) {
+			wishlistService.removeFromWishlist(id);
+		}
+
+
 }]);
