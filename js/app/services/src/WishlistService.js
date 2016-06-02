@@ -1,8 +1,3 @@
-toyTrackerApp.factory('Search', function() {
-
-	
-	
-});
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase

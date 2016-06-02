@@ -13,18 +13,82 @@ html {
 }
 
 h1 {
-  font-size: 4.65em;
+  font-size: 2.33em;
   margin-bottom: 20px;
 }
 
+@media (min-width: 768px) {
+  h1 {
+    font-size: 4.65em;
+  }
+}
+
 p {
-  font-size: 1.4em;
+  font-size: 1.00em;
   line-height: 1.55em;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.4em;
+  }
 }
 
 a:hover, a:focus, a:active, a:visited {
   opacity: .85;
   text-decoration: none;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  color: #999;
+  font-size: 1.5em;
+  height: 60px;
+  text-align: center;
+}
+
+.btn {
+  background: transparent;
+  border-radius: 0;
+  color: white;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.btn.primary {
+  border: 2px solid #4183d7;
+  color: #4183d7;
+}
+
+.btn.primary:hover, .btn.primary:active, .btn.primary:focus {
+  background: #4183d7;
+  color: white;
+}
+
+.btn.secondary {
+  border: 2px solid #f9690e;
+  color: #f9690e;
+}
+
+.btn.secondary:hover, .btn.secondary:active, .btn.secondary:focus {
+  background: #f9690e;
+  color: white;
+}
+
+button {
+  background: transparent;
+  border: 2px solid black;
+  margin-top: 15px;
+}
+
+button.primary {
+  border: 2px solid #4183d7;
+  color: #4183d7;
+}
+
+button.secondary {
+  border: 2px solid #f9690e;
+  color: #f9690e;
 }
 
 .header {
@@ -88,13 +152,6 @@ a:hover, a:focus, a:active, a:visited {
   padding: 15px;
 }
 
-.search .intro-section input[type="text"] {
-  color: #999;
-  font-size: 1.5em;
-  height: 60px;
-  text-align: center;
-}
-
 .search h1 {
   text-align: center;
 }
@@ -131,14 +188,21 @@ a:hover, a:focus, a:active, a:visited {
   text-align: center;
 }
 
+.home label {
+  font-size: 1.5em;
+}
+
+.home input {
+  margin-bottom: 15px;
+}
+
 .toy-card {
   margin-bottom: 50px;
-  min-height: 310px;
 }
 
 .toy-card .toy-card-inner {
   box-shadow: 1px 2px 10px #ddd;
-  min-height: 296px;
+  height: 350px;
   padding: 20px;
 }
 

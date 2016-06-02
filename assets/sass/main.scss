@@ -1,4 +1,5 @@
 // Import Custom Globals
+@import "bootstrap/variables";
 @import "styles/custom-globals/custom-variables";
 @import "styles/custom-globals/custom-mixins";
 @import "styles/custom-globals/scaffolding";
@@ -7,6 +8,7 @@
 
 // Import Element Styles
 @import "styles/elements/typography";
+@import "styles/elements/forms";
 
 // Import Layout Styles
 @import "styles/layout/header";

@@ -1,4 +1,4 @@
-toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope, $http) {
+toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', function($scope, $http, wishlistService) {
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
@@ -11,6 +11,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope
 	$scope.loading = true;
 	
 
+	// fetch data from the api, based on search
 	function fetch(){
 		$scope.loading = true;
 
@@ -18,7 +19,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope
 		.then(function(response){ 
 			$scope.toys = response.data.items;
 
-			console.log(response);
+			// console.log(response);
 		})
 		.finally(function() {
 			$scope.loading = false;
@@ -29,5 +30,14 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', function($scope
 	$scope.$watch('searchTerm', function() {
 		fetch();
 	}); 
+
+
+	// add toy to the wishlist array
+	$scope.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+		wishlistService.addToWishlist(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage);
+	}
+
+	// bind $scope.wishlist to wishlist from wishlistService
+	$scope.wishlist = wishlistService.wishlist;
 
 }]);

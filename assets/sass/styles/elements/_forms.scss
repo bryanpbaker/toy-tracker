@@ -1,0 +1,51 @@
+input[type="text"], input[type="password"], input[type="email"]{
+	color: #999;
+	font-size: 1.5em;
+	height: 60px;
+	text-align: center;
+}
+
+.btn{
+	background: transparent;
+    border-radius: 0;
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 15px;
+
+    &.primary{
+    	border: 2px solid $primary;
+    	color: $primary;
+
+    	&:hover, &:active, &:focus{
+			background: $primary;
+			color: white;
+	    }
+    }
+
+    &.secondary{
+    	border: 2px solid $secondary;
+    	color: $secondary;
+
+    	&:hover, &:active, &:focus{
+    		background: $secondary;
+    		color: white;
+	    }
+    }
+}
+
+button{
+    background: transparent;
+    border: 2px solid black;
+    margin-top: 15px;
+
+    &.primary{
+        border: 2px solid $primary;
+        color: $primary;
+    }
+
+    &.secondary{
+        border: 2px solid $secondary;
+        color: $secondary;
+    }
+}

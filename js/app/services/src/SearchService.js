@@ -1,0 +1,5 @@
+toyTrackerApp.factory('Search', function() {
+
+	
+	
+});
