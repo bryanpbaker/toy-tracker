@@ -1,6 +1,25 @@
 toyTrackerApp.controller('GlobalController', ['$scope', function($scope) {
 
 }]);
+toyTrackerApp.controller('LoginController', ['$scope', 'authService', function($scope, authService) {
+
+	$scope.auth = authService.auth;
+	$scope.authData = 'no auth data';
+
+	$scope.email = '';
+
+	$scope.login = function(email, password) {
+		authService.login(email, password);
+	}
+
+	$scope.auth.$onAuth(function(authData) {
+		$scope.authData = authData;
+	});
+
+	console.log($scope.auth);
+
+}]);
+
 toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', function($scope, $http, wishlistService) {
 
 	// set the default search term

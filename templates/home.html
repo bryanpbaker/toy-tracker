@@ -1,6 +1,21 @@
 <div class="home">
 	<div class="container intro-section">
-		<h1>Welcome to the <br class="hidden-sm hidden-md hidden-lg" />Toy Tracker</h1>
-		<p class="col-xs-12 col-sm-10 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, porro sequi aut, architecto ut aliquam excepturi suscipit animi, omnis voluptatibus ipsum distinctio autem, enim blanditiis dolores mollitia in labore veniam!</p>
+		<!-- <h1>Welcome to the <br class="hidden-sm hidden-md hidden-lg" />Toy Tracker</h1>
+		<p class="col-xs-12 col-sm-10 col-sm-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, porro sequi aut, architecto ut aliquam excepturi suscipit animi, omnis voluptatibus ipsum distinctio autem, enim blanditiis dolores mollitia in labore veniam!</p> -->
+
+		<div class="panel col-sm-6 col-sm-offset-3" style="margin-top: 50px;" ng-controller="LoginController"> 
+			<h2>Login!</h2>
+			<form ng-submit="login(email, password)" ng-hide="authData">
+				<div class="form-group">
+					<input ng-model="email" class="form-control" type="email">
+					<input ng-model="password" class="form-control" type="password">
+					<input type="submit">
+				</div>
+			</form>
+			<div ng-show="authData">
+				<h2>Hello {{ authData.password.email }}</h2>
+				<button ng-click="auth.$unauth()">Logout</button>
+			</div>			
+		</div>
 	</div>
 </div>
