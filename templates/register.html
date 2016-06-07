@@ -1,0 +1,15 @@
+<div class="register">
+	<div class="container intro-section">
+		<div class="panel col-sm-6 col-sm-offset-3" style="margin-top: 50px;" ng-controller="RegisterController as regCtrl"> 
+			<h2>Sign Up</h2>
+			<div ng-show="regCtrl.error">
+			  <span>{{ regCtrl.error.message }}</span>
+			</div>
+			<form ng-submit="regCtrl.register()">
+	    		<input type="email" class="form-control" placeholder="Email" ng-model="regCtrl.user.email">
+		    	<input type="password" class="form-control" placeholder="Password" ng-model="regCtrl.user.password">
+		  		<input type="submit" value="Register">
+			</form>	
+		</div>
+	</div>
+</div>

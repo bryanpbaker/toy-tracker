@@ -1,22 +1,62 @@
-toyTrackerApp.controller('GlobalController', ['$scope', function($scope) {
+toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+
+	var authCtrl = this;
+
+	authCtrl.user = {
+		email: '',
+		password: ''
+	};
+
+	authCtrl.login = function() {
+		authService.auth.$authWithPassword(authCtrl.user).then(function(auth) {
+			$state.go('search');
+		}, function(error) {
+			authCtrl.error = error;
+		});
+	};
 
 }]);
-toyTrackerApp.controller('LoginController', ['$scope', 'authService', function($scope, authService) {
 
-	$scope.auth = authService.auth;
-	$scope.authData = 'no auth data';
 
-	$scope.email = '';
 
-	$scope.login = function(email, password) {
-		authService.login(email, password);
-	}
+// $scope.auth = authService.auth;
+// $scope.authData = 'no auth data';
 
-	$scope.auth.$onAuth(function(authData) {
-		$scope.authData = authData;
-	});
+// $scope.email = '';
 
-	console.log($scope.auth);
+// $scope.login = function(email, password) {
+// 	authService.login(email, password);
+// }
+
+// $scope.auth.$onAuth(function(authData) {
+// 	$scope.authData = authData;
+// });
+
+// console.log($scope.auth);
+toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+
+	var regCtrl = this;
+
+	regCtrl.user = {
+		email: '',
+		password: ''
+	};
+
+	regCtrl.register = function() {
+		authService.auth.$createUser(regCtrl.user).then(function() {
+			regCtrl.login();
+		}, function(error) {
+			regCtrl.error = error;
+		});
+	};
+
+	regCtrl.login = function() {
+		authService.auth.$authWithPassword(regCtrl.user).then(function(auth) {
+			$state.go('search');
+		}, function(error) {
+			regCtrl.error = error;
+		});
+	};
 
 }]);
 
@@ -63,7 +103,6 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	$scope.wishlist = wishlistService.wishlist;
 
 }]);
-
 toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wishlistService', function($scope, $firebaseArray, wishlistService) {
 
 		// bind firebase wishlist to $scope

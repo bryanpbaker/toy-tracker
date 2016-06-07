@@ -11,6 +11,10 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'templates/home.html'
     })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html'
+    })
     .state('search', {
       url: '/search',
       templateUrl: 'templates/search.html'

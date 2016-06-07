@@ -196,6 +196,18 @@ button.secondary {
   margin-bottom: 15px;
 }
 
+.register .intro-section {
+  text-align: center;
+}
+
+.register label {
+  font-size: 1.5em;
+}
+
+.register input {
+  margin-bottom: 15px;
+}
+
 .toy-card {
   margin-bottom: 50px;
 }
