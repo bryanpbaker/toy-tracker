@@ -33,6 +33,13 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', f
 // });
 
 // console.log($scope.auth);
+toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+
+	$scope.logout = function() {
+		authService.auth.$unauth();
+	}
+
+}]);
 toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
 
 	var regCtrl = this;

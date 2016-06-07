@@ -2,12 +2,13 @@
     <div class="container">
         <nav class="navbar">
             <div class="logo pull-left"><a href="#"><img class="robot" src="./dist/img/robot.svg" alt="">Toy Tracker</a></div>
-            <div class="main-nav pull-right hidden-xs">
+            <div class="main-nav pull-right hidden-xs" ng-controller="NavController">
                 <ul>
                     <li><a href="#/search">Search</a></li>
                     <li><a href="#/wishlist">Wishlist</a></li>
                     <li><a href="#">My Toys</a></li>
                     <li><a href="#">Dashboard</a></li>
+                    <li><a ng-click="logout()">Logout</a></li>
                 </ul>
             </div>
         </nav>

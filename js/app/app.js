@@ -7,13 +7,31 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // Now set up the states
   $stateProvider
-    .state('home', {
+    .state('login', {
       url: '/',
-      templateUrl: 'templates/home.html'
+      templateUrl: 'templates/login.html',
+      resolve: {
+        requireNoAuth: function($state, authService){
+          return authService.auth.$requireAuth().then(function(auth){
+            $state.go('search');
+          }, function(error){
+            return;
+          });
+        }
+      }
     })
     .state('register', {
       url: '/register',
-      templateUrl: 'templates/register.html'
+      templateUrl: 'templates/register.html',
+      resolve: {
+        requireNoAuth: function($state, authService){
+          return authService.auth.$requireAuth().then(function(auth) {
+            $state.go('search');
+          }, function(error){
+            return;
+          });
+        }
+      }
     })
     .state('search', {
       url: '/search',
