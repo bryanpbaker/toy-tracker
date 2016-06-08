@@ -33,17 +33,11 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', f
 // });
 
 // console.log($scope.auth);
-toyTrackerApp.controller('DashboardController', ['$state', 'auth', 'profile', function($state, auth, profile) {
+toyTrackerApp.controller('DashboardController', ['$state', 'auth', function($state, auth) {
 
 	var dashboardCtrl = this;
 
-	dashboardCtrl.profile = profile;
 
-	dashboardCtrl.updateProfile = function() {
-
-		dashboardCtrl.profile.email = auth.password.email;
-
-	};
 
 }]);
 

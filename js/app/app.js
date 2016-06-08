@@ -37,14 +37,9 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       templateUrl: 'templates/dashboard.html',
       resolve: {
-        auth: function($state, usersFactory, authService){
+        auth: function($state, authService){
           return authService.auth.$requireAuth().catch(function(){
             $state.go('login');
-          });
-        },
-        profile: function(usersFactory, authService){
-          return authService.auth.$requireAuth().then(function(auth){
-            return usersFactory.getProfile(auth.uid).$loaded();
           });
         }
       }
