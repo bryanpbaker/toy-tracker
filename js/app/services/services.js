@@ -25,6 +25,24 @@ toyTrackerApp.factory('Search', function() {
 	
 	
 });
+toyTrackerApp.factory('usersFactory', ['$firebaseArray', '$firebaseObject', 'FirebaseUrl', function($firebaseArray, $firebaseObject, FirebaseUrl) {
+
+	var usersRef = new Firebase(FirebaseUrl+'/users');
+	var users = $firebaseArray(usersRef);
+
+	var Users = {
+		getProfile: function(uid){
+			return $firebaseObject(usersRef.child(uid));
+		},
+		getDisplayName: function(uid){
+			return users.$getRecord(uid).displayName;
+		},
+		all: users
+	};
+
+	return Users;
+
+}]);
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase

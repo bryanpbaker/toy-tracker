@@ -2,6 +2,8 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', fu
 
 	$scope.logout = function() {
 		authService.auth.$unauth();
+
+		$state.go('login');
 	}
 
 }]);

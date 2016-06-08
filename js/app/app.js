@@ -33,6 +33,22 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'templates/dashboard.html',
+      resolve: {
+        auth: function($state, usersFactory, authService){
+          return authService.auth.$requireAuth().catch(function(){
+            $state.go('login');
+          });
+        },
+        profile: function(usersFactory, authService){
+          return authService.auth.$requireAuth().then(function(auth){
+            return usersFactory.getProfile(auth.uid).$loaded();
+          });
+        }
+      }
+    })
     .state('search', {
       url: '/search',
       templateUrl: 'templates/search.html'
@@ -42,3 +58,5 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/wishlist.html'
     });
 });
+
+toyTrackerApp.constant('FirebaseUrl', 'https://toy-tracker-app.firebaseio.com');
