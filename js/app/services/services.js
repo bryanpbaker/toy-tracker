@@ -25,6 +25,10 @@ toyTrackerApp.factory('Search', function() {
 	
 	
 });
+toyTrackerApp.service('usersService', [function() {
+
+
+}]);
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase
