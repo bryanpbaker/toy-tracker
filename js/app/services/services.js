@@ -25,8 +25,11 @@ toyTrackerApp.factory('Search', function() {
 	
 	
 });
-toyTrackerApp.service('usersService', [function() {
+toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function($firebaseArray, FirebaseUrl) {
 
+	this.usersRef = new Firebase(FirebaseUrl + 'users');
+
+	this.users = $firebaseArray(this.usersRef);
 
 }]);
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {

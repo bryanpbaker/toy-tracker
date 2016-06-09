@@ -5,11 +5,17 @@
 			<div ng-show="regCtrl.error">
 			  <span>{{ regCtrl.error.message }}</span>
 			</div>
-			<form ng-submit="regCtrl.register()">
+			<form ng-submit="regCtrl.register(); regCtrl.createProfile()">
+				<input type="text" class="form-control" placeholder="Name" ng-model="regCtrl.user.name">
+				<input type="text" class="form-control" placeholder="Age" ng-model="regCtrl.user.age">
 	    		<input type="email" class="form-control" placeholder="Email" ng-model="regCtrl.user.email">
 		    	<input type="password" class="form-control" placeholder="Password" ng-model="regCtrl.user.password">
 		  		<input type="submit" value="Register">
 			</form>	
+
+			<ul>
+				<li ng-repeat="user in regCtrl.users">{{name}}</li>
+			</ul>
 		</div>
 	</div>
 </div>

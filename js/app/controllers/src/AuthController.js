@@ -1,4 +1,4 @@
-toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', 'usersService',  function($scope, $state, authService, usersService) {
 
 	var authCtrl = this;
 
@@ -14,6 +14,9 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', f
 			authCtrl.error = error;
 		});
 	};
+
+
+	
 
 }]);
 

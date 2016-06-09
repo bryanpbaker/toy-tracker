@@ -54,4 +54,4 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     });
 });
 
-toyTrackerApp.constant('FirebaseUrl', 'https://toy-tracker-app.firebaseio.com');
+toyTrackerApp.constant('FirebaseUrl', 'https://toy-tracker-app.firebaseio.com/');
