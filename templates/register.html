@@ -5,7 +5,7 @@
 			<div ng-show="regCtrl.error">
 			  <span>{{ regCtrl.error.message }}</span>
 			</div>
-			<form ng-submit="regCtrl.register(); regCtrl.createProfile()">
+			<form ng-submit="regCtrl.register(null, regCtrl.user.name, regCtrl.user.age, regCtrl.user.email);">
 				<input type="text" class="form-control" placeholder="Name" ng-model="regCtrl.user.name">
 				<input type="text" class="form-control" placeholder="Age" ng-model="regCtrl.user.age">
 	    		<input type="email" class="form-control" placeholder="Email" ng-model="regCtrl.user.email">

@@ -4,4 +4,14 @@ toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function
 
 	this.users = $firebaseArray(this.usersRef);
 
+	// add new user to users in db
+	this.createProfile = function(uid, name, age, email) {
+		this.users.$add({
+			uid: uid,
+			name: name,
+			age: age,
+			email: email
+		});
+	};
+
 }]);
