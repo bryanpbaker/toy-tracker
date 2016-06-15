@@ -57,13 +57,6 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 
 	var regCtrl = this;
 
-	regCtrl.user = {
-		name: '',
-		age: '',
-		email: '',
-		password: ''
-	};
-
 	// bind to users in db 
 	regCtrl.users = usersService.users;
 
@@ -77,20 +70,21 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 	};
 
 	// run login function from usersController
-	regCtrl.createProfile = function(uid, name, age, email) {
-		usersService.createProfile(uid, name, age, email);
+	regCtrl.createProfile = function(uid, fullName, age, email, password) {
+		usersService.createProfile(uid, fullName, age, email, password);
 	}
 
 
 	// register new user
-	regCtrl.register = function(name, age, email) {
+	regCtrl.register = function(uid, fullName, age, email, password) {
 		authService.auth.$createUser({
 			email: regCtrl.user.email, 
 			password: regCtrl.user.password
 
 		}).then(function(user) {
 			regCtrl.login();
-			regCtrl.createProfile(user.uid, name, age, email);
+			regCtrl.createProfile(user.uid, fullName, age, email, password);
+			alert('User ' + fullName + ' has been created!');
 
 		}, function(error) {
 			regCtrl.error = error;
