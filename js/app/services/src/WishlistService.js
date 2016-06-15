@@ -1,7 +1,7 @@
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase
-	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/');
+	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/');
 
 	// define 'wishlist'
 	this.wishlist = $firebaseArray(ref.child('wishlist'));
@@ -16,6 +16,8 @@ toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseAr
 			thumbnailImage: toyThumbnail,
 			reviewImage: toyReviewImage
 		});
+
+		console.log( toyName + ' has been added to your wishlist!');
 	};
 
 
