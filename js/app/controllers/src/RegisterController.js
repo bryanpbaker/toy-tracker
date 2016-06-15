@@ -36,7 +36,7 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 		}).then(function(user) {
 			regCtrl.login();
 			regCtrl.createProfile(user.uid, name, age, email);
-			
+
 		}, function(error) {
 			regCtrl.error = error;
 		});

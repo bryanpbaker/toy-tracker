@@ -1,4 +1,4 @@
-toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', 'usersService', 'wishlistService',  function($scope, $state, authService, usersService, wishlistService) {
+toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', 'usersService',  function($scope, $state, authService, usersService) {
 
 	var authCtrl = this;
 
@@ -7,13 +7,9 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 		password: ''
 	};
 
-
 	authCtrl.login = function() {
 		authService.auth.$authWithPassword(authCtrl.user).then(function(auth) {
 			$state.go('search');
-			authService.userId = auth.auth.uid;
-			wishlistService.findWishlist(authService.userId);
-		
 		}, function(error) {
 			authCtrl.error = error;
 		});
@@ -95,7 +91,7 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 		}).then(function(user) {
 			regCtrl.login();
 			regCtrl.createProfile(user.uid, name, age, email);
-			
+
 		}, function(error) {
 			regCtrl.error = error;
 		});
