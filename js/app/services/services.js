@@ -27,14 +27,16 @@ toyTrackerApp.factory('Search', function() {
 });
 toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function($firebaseArray, FirebaseUrl) {
 
-	this.usersRef = new Firebase(FirebaseUrl + 'users');
-
-	this.users = $firebaseArray(this.usersRef);
 
 	// add new user to users in db
 	this.createProfile = function(uid, name, age, email, password) {
+
+		this.usersRef = new Firebase(FirebaseUrl + 'users/' + uid);
+		console.log(uid);
+		this.users = $firebaseArray(this.usersRef);
+
 		this.users.$add({
-			uid: uid,
+			// uid: uid,
 			name: name,
 			age: age,
 			email: email
@@ -45,7 +47,7 @@ toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase
-	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/');
+	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + uid);
 
 	// define 'wishlist'
 	this.wishlist = $firebaseArray(ref.child('wishlist'));

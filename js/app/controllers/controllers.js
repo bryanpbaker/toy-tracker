@@ -10,13 +10,15 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 	authCtrl.login = function() {
 		authService.auth.$authWithPassword(authCtrl.user).then(function(auth) {
 			$state.go('search');
+
+			authCtrl.userData = auth;
+
+			authCtrl.uid = authCtrl.userData.uid;
+
 		}, function(error) {
 			authCtrl.error = error;
 		});
 	};
-
-
-	
 
 }]);
 
@@ -70,9 +72,9 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 	};
 
 	// run login function from usersController
-	regCtrl.createProfile = function(uid, fullName, age, email, password) {
-		usersService.createProfile(uid, fullName, age, email, password);
-	}
+	// regCtrl.createProfile = function(uid, fullName, age, email, password) {
+	// 	usersService.createProfile(uid, fullName, age, email, password);
+	// }
 
 
 	// register new user
@@ -82,9 +84,9 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 			password: regCtrl.user.password
 
 		}).then(function(user) {
+
 			regCtrl.login();
-			regCtrl.createProfile(user.uid, fullName, age, email, password);
-			alert('User ' + fullName + ' has been created!');
+			usersService.createProfile(user.uid, fullName, age, email, password);
 
 		}, function(error) {
 			regCtrl.error = error;

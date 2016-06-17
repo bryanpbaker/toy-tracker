@@ -1,7 +1,7 @@
 toyTrackerApp.service('wishlistService', ['$firebaseArray', function($firebaseArray) {
 
 	// reference to firebase
-	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/');
+	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + uid);
 
 	// define 'wishlist'
 	this.wishlist = $firebaseArray(ref.child('wishlist'));
