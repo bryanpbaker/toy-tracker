@@ -50,7 +50,12 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('wishlist', {
       url: '/wishlist',
-      templateUrl: 'templates/wishlist.html'
+      templateUrl: 'templates/wishlist.html',
+      resolve: {
+        wishlist: function(authService, wishlistService){
+          
+        }
+      }
     });
 });
 
