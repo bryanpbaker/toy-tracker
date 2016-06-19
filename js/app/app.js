@@ -46,14 +46,23 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('search', {
       url: '/search',
-      templateUrl: 'templates/search.html'
+      templateUrl: 'templates/search.html',
+      resolve: {
+        auth: function($state, authService){
+          return authService.auth.$requireAuth().catch(function(){
+            $state.go('login');
+          });
+        }
+      }
     })
     .state('wishlist', {
       url: '/wishlist',
       templateUrl: 'templates/wishlist.html',
       resolve: {
-        wishlist: function(authService, wishlistService){
-          
+        auth: function($state, authService){
+          return authService.auth.$requireAuth().catch(function(){
+            $state.go('login');
+          });
         }
       }
     });
