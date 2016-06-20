@@ -3,7 +3,7 @@ var toyTrackerApp = angular.module('toyTrackerApp', ['ui.router', 'firebase']);
 toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
   //
   // Now set up the states
   $stateProvider
@@ -13,7 +13,7 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
       resolve: {
         requireNoAuth: function($state, authService){
           return authService.auth.$requireAuth().then(function(auth){
-            $state.go('search');
+            $state.go('home');
           }, function(error){
             return;
           });
@@ -29,6 +29,17 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
             $state.go('search');
           }, function(error){
             return;
+          });
+        }
+      }
+    })
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      resolve: {
+        auth: function($state, authService){
+          return authService.auth.$requireAuth().catch(function(){
+            $state.go('login');
           });
         }
       }

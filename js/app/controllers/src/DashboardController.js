@@ -1,4 +1,4 @@
-toyTrackerApp.controller('DashboardController', ['$state', 'auth', function($state, auth) {
+toyTrackerApp.controller('DashboardController', ['$state', function($state) {
 
 	var dashboardCtrl = this;
 

@@ -11,10 +11,15 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 			regCtrl.userData = auth;
 			regCtrl.uid = regCtrl.userData.uid;
 
+			// get wishlist
 			wishlistService.uid = regCtrl.uid;
 
+			// Go to the home page
+			$state.go('home');
 
-			$state.go('search');
+			// user is logged in
+			authService.loggedIn = true;
+			
 		}, function(error) {
 			regCtrl.error = error;
 		});

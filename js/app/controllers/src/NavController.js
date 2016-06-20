@@ -6,4 +6,14 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 		$state.go('login');
 	}
 
+	authService.auth.$onAuth(function(authData){
+		if(authData){
+			$scope.loggedIn = true;
+		} else{
+			$scope.loggedIn = false;
+		}
+
+		console.log($scope.loggedIn);
+	});
+
 }]);

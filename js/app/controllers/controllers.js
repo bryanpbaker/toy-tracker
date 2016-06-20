@@ -9,7 +9,7 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 
 	authCtrl.login = function() {
 		authService.auth.$authWithPassword(authCtrl.user).then(function(auth) {
-			$state.go('search');
+			$state.go('home');
 
 			authCtrl.userData = auth;
 			authCtrl.uid = authCtrl.userData.uid;
@@ -25,7 +25,7 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 }]);
 
 
-toyTrackerApp.controller('DashboardController', ['$state', 'auth', function($state, auth) {
+toyTrackerApp.controller('DashboardController', ['$state', function($state) {
 
 	var dashboardCtrl = this;
 
@@ -41,6 +41,16 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 		$state.go('login');
 	}
 
+	authService.auth.$onAuth(function(authData){
+		if(authData){
+			$scope.loggedIn = true;
+		} else{
+			$scope.loggedIn = false;
+		}
+
+		console.log($scope.loggedIn);
+	});
+
 }]);
 toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService', 'usersService', 'wishlistService', function($scope, $state, authService, usersService, wishlistService) {
 
@@ -55,10 +65,15 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 			regCtrl.userData = auth;
 			regCtrl.uid = regCtrl.userData.uid;
 
+			// get wishlist
 			wishlistService.uid = regCtrl.uid;
 
+			// Go to the home page
+			$state.go('home');
 
-			$state.go('search');
+			// user is logged in
+			authService.loggedIn = true;
+			
 		}, function(error) {
 			regCtrl.error = error;
 		});

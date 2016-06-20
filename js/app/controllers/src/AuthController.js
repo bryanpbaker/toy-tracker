@@ -9,7 +9,7 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 
 	authCtrl.login = function() {
 		authService.auth.$authWithPassword(authCtrl.user).then(function(auth) {
-			$state.go('search');
+			$state.go('home');
 
 			authCtrl.userData = auth;
 			authCtrl.uid = authCtrl.userData.uid;
