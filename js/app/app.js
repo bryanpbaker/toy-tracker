@@ -69,11 +69,15 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     .state('wishlist', {
       url: '/wishlist',
       templateUrl: 'templates/wishlist.html',
+      controller: 'WishlistController',
       resolve: {
         auth: function($state, authService){
           return authService.auth.$requireAuth().catch(function(){
             $state.go('login');
           });
+        },
+        setWishlist: function(authService){
+          return authData = authService.auth.$getAuth();
         }
       }
     });

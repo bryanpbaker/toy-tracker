@@ -36,7 +36,7 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 			regCtrl.login();
 			usersService.createProfile(user.uid, fullName, age, email, password);
 			
-			wishlistService.getWishlist(user.uid);
+			// wishlistService.getWishlist(user.uid);
 
 		}, function(error) {
 			regCtrl.error = error;

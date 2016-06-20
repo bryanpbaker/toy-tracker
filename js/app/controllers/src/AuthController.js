@@ -13,9 +13,9 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 
 			authCtrl.userData = auth;
 			authCtrl.uid = authCtrl.userData.uid;
-
+			
 			// get correct wishlist
-			wishlistService.getWishlist(authCtrl.uid);
+			// wishlistService.getWishlist(authCtrl.uid);
 
 		}, function(error) {
 			authCtrl.error = error;

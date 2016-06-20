@@ -2,7 +2,6 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 
 	$scope.logout = function() {
 		authService.auth.$unauth();
-		// wishlistService.uid = '';
 		$state.go('login');
 	}
 
@@ -12,8 +11,6 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 		} else{
 			$scope.loggedIn = false;
 		}
-
-		console.log($scope.loggedIn);
 	});
 
 }]);

@@ -13,9 +13,9 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 
 			authCtrl.userData = auth;
 			authCtrl.uid = authCtrl.userData.uid;
-
+			
 			// get correct wishlist
-			wishlistService.getWishlist(authCtrl.uid);
+			// wishlistService.getWishlist(authCtrl.uid);
 
 		}, function(error) {
 			authCtrl.error = error;
@@ -37,7 +37,6 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 
 	$scope.logout = function() {
 		authService.auth.$unauth();
-		// wishlistService.uid = '';
 		$state.go('login');
 	}
 
@@ -47,8 +46,6 @@ toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'w
 		} else{
 			$scope.loggedIn = false;
 		}
-
-		console.log($scope.loggedIn);
 	});
 
 }]);
@@ -90,7 +87,7 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 			regCtrl.login();
 			usersService.createProfile(user.uid, fullName, age, email, password);
 			
-			wishlistService.getWishlist(user.uid);
+			// wishlistService.getWishlist(user.uid);
 
 		}, function(error) {
 			regCtrl.error = error;
@@ -143,12 +140,11 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	$scope.wishlist = wishlistService.wishlist;
 
 }]);
-toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wishlistService', function($scope, $firebaseArray, wishlistService) {
+toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wishlistService', 'setWishlist', function($scope, $firebaseArray, wishlistService, setWishlist) {
 
-		// bind firebase wishlist to $scope
-		$scope.wishlist = wishlistService.wishlist;
-
-
+		var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
+		$scope.wishlist = $firebaseArray(ref.child('wishlist'));
+		
 		// bind removeFromWishlist to $scope
 		$scope.removeFromWishlist = function(id) {
 			wishlistService.removeFromWishlist(id);
