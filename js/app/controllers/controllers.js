@@ -172,7 +172,9 @@ toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wis
 		// bind removeFromWishlist to $scope
 		$scope.removeFromWishlist = function(id) {
 			// wishlistService.removeFromWishlist(id);
-			$scope.wishlist.$remove(id);
+			if(confirm('Are you sure you want to remove this toy?') === true) {
+				$scope.wishlist.$remove(id);
+			}
 		};
 
 
