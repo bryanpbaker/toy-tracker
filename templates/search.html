@@ -1,5 +1,4 @@
-<div class="search" ng-controller="SearchController">
-	
+<div class="search" ng-controller="SearchController">	
 	<div class="container intro-section">
 		<h1>Search for Toys</h1>
 		<input class="col-xs-12 col-md-6 col-md-offset-3" type="text" ng-model="searchTerm" ng-model-options="{ debounce: 300 }" placeholder="Find a toy..." select-on-click>
@@ -13,6 +12,9 @@
 	</div>
 
 	<div class="container toy-cards-container" ng-hide="loading">
+	<div class="adding" ng-class="{'in': addingToy}" ng-show="addingToy">
+		<h4><i class="fa fa-passing-animated"></i> Adding toy to wishlist...</h4>
+	</div>
 		<toy-card></toy-card>
 	</div>
 </div>

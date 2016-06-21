@@ -36,3 +36,20 @@
 	padding-bottom: 50px;
 	padding-top: 50px;
 }
+
+.adding{
+	background: rgba(0,0,0,.45);
+	height: 100%;
+	left: 0;
+	position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    h4{
+    	color: white;
+    	font-size: 50px;
+    	text-align: center;
+    	@include center-center-element();
+    }
+}

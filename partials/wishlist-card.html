@@ -1,4 +1,7 @@
-<div class="col-xs-12 col-sm-6 col-md-4 toy-card" ng-repeat="(id, toy) in wishlist">
+<div ng-hide="wishlist.length">
+	<h2>Go to the Search page and find some toys for your wishlist!</h2>
+</div>
+<div ng-show="wishlist.length" class="col-xs-12 col-sm-6 col-md-4 toy-card" ng-repeat="(id, toy) in wishlist">
 	<div class="toy-card-inner">
 		<div ng-if="toy.thumbnailImage" class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');"></div>
 		<h5><b>{{toy.name}}</b></h5>

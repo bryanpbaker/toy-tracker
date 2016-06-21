@@ -97,7 +97,7 @@ toyTrackerApp.controller('RegisterController', ['$scope', '$state', 'authService
 
 }]);
 
-toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', '$firebaseArray', function($scope, $http, wishlistService, $firebaseArray) {
+toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', '$firebaseArray', '$timeout', function($scope, $http, wishlistService, $firebaseArray, $timeout) {
 
 	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
 	$scope.wishlist = $firebaseArray(ref.child('wishlist'));
@@ -139,6 +139,8 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	// add toy to the wishlist array
 	$scope.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+		$scope.addingToy = true;
+
 		Wishlist.$add({
 			name: toyName,
 			price: toyPrice,
@@ -146,7 +148,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 			thumbnailImage: toyThumbnail,
 			reviewImage: toyReviewImage
 		}).then(function() {
-			// this.addingToy = false;
+			$timeout(function(){
+				$scope.addingToy = false;
+			}, 800);
 		});
 	}
 
