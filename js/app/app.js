@@ -63,6 +63,10 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
           return authService.auth.$requireAuth().catch(function(){
             $state.go('login');
           });
+        },
+        setWishlist: function(authService, wishlistService){
+          return authData = authService.auth.$getAuth();
+          console.log(authData);
         }
       }
     })
@@ -76,8 +80,9 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
             $state.go('login');
           });
         },
-        setWishlist: function(authService){
+        setWishlist: function(authService, wishlistService){
           return authData = authService.auth.$getAuth();
+          console.log(authData);
         }
       }
     });

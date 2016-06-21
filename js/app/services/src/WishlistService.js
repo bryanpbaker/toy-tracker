@@ -2,27 +2,34 @@ toyTrackerApp.service('wishlistService', ['$firebaseArray', 'authService', '$sta
 
 	var wishlistService = this;
 
+	// wishlistService.currentUser = authService.auth.$getAuth();
+	
 
-	// add toy to wishlist when button is clicked
-	this.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+	// var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + wishlistService.currentUser.uid);
+	// wishlistService.wishlist = $firebaseArray(ref.child('wishlist'));
+	
 
-		this.addingToy = true;
 
-		this.wishlist.$add({
-			name: toyName,
-			price: toyPrice,
-			onWishlist: onWishlist,
-			thumbnailImage: toyThumbnail,
-			reviewImage: toyReviewImage
-		}).then(function() {
-			this.addingToy = false;
-		});
-	};
+	// // add toy to wishlist when button is clicked
+	// this.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+
+	// 	// this.addingToy = true;
+
+	// 	wishlistService.wishlist.$add({
+	// 		name: toyName,
+	// 		price: toyPrice,
+	// 		onWishlist: onWishlist,
+	// 		thumbnailImage: toyThumbnail,
+	// 		reviewImage: toyReviewImage
+	// 	}).then(function() {
+	// 		// this.addingToy = false;
+	// 	});
+	// };
 
 
 	// remove toy to wishlist when button is clicked
-	this.removeFromWishlist = function(id){
-		this.wishlist.$remove(id);
-	}
+	// this.removeFromWishlist = function(id){
+	// 	this.wishlist.$remove(id);
+	// }
 
 }]);

@@ -1,4 +1,10 @@
-toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', function($scope, $http, wishlistService) {
+toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistService', '$firebaseArray', function($scope, $http, wishlistService, $firebaseArray) {
+
+	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
+	$scope.wishlist = $firebaseArray(ref.child('wishlist'));
+
+	var Wishlist = $scope.wishlist;
+
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
@@ -34,10 +40,17 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	// add toy to the wishlist array
 	$scope.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
-		wishlistService.addToWishlist(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage);
+		Wishlist.$add({
+			name: toyName,
+			price: toyPrice,
+			onWishlist: onWishlist,
+			thumbnailImage: toyThumbnail,
+			reviewImage: toyReviewImage
+		}).then(function() {
+			// this.addingToy = false;
+		});
 	}
 
 	// bind $scope.wishlist to wishlist from wishlistService
-	$scope.wishlist = wishlistService.wishlist;
 
 }]);
