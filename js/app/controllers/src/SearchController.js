@@ -55,6 +55,20 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 		});
 	}
 
-	// bind $scope.wishlist to wishlist from wishlistService
+	// Detail view functionality
+
+	$scope.showModal = false;
+
+	$scope.detailView = function(clickedToy){
+		// console.log(clickedToy.$id);
+		$scope.toyDetail = clickedToy
+		$scope.showModal = true;
+
+		console.log($scope.toyDetail);
+	}
+
+	$scope.closeDetailView = function(){
+		$scope.showModal = false;
+	}
 
 }]);

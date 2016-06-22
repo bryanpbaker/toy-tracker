@@ -47,6 +47,7 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'templates/dashboard.html',
+      controller: 'DashboardController',
       resolve: {
         auth: function($state, authService){
           return authService.auth.$requireAuth().catch(function(){
@@ -69,6 +70,11 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
           console.log(authData);
         }
       }
+    })
+    .state('toyDetail', {
+      url: '/toy/:id',
+      templateUrl: 'partials/toy.html',
+      // controller: 'ToyController as toyCtrl'
     })
     .state('wishlist', {
       url: '/wishlist',

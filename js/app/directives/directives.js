@@ -19,6 +19,14 @@ toyTrackerApp.directive('toyCard', function() {
     }
 
 });
+toyTrackerApp.directive('toyDetail', function() {
+
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/toy-detail.html'
+    }
+
+});
 toyTrackerApp.directive('wishlistCard', function() {
 
     return {

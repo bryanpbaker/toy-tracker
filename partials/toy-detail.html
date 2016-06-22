@@ -1,0 +1,18 @@
+<div class="detail-modal" ng-if="showModal">
+	<div class="detail-modal-inner">
+		<div class="container">
+			<i ng-click="closeDetailView()" class="fa fa-close pull-right fa-3x"></i>
+			<div class="row">
+				<div class="toy-photo col-xs-12 col-md-6">
+					<img ng-src="{{toyDetail.largeImage}}" alt="" style="width: 100%;">
+				</div>
+				<br>
+				<div class="details col-xs-6">
+					<h2>{{toyDetail.name}}</h2>
+					<p>{{toyDetail.shortDescription}}</p>
+					<button ng-click="addToWishlist(toyDetail.name, toyDetail.salePrice, true, toyDetail.thumbnailImage, toyDetail.customerRatingImage ? toyDetail.customerRatingImage : null); closeDetailView()" class="secondary"><i class="fa fa-plus"></i> Add to Wishlist</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

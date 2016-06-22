@@ -10,6 +10,11 @@ toyTrackerApp.factory('Search', function() {
 	
 	
 });
+toyTrackerApp.service('toyService', [function() {
+
+
+}]);
+
 toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function($firebaseArray, FirebaseUrl) {
 
 
