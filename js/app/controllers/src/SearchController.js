@@ -2,21 +2,15 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
 	$scope.wishlist = $firebaseArray(ref.child('wishlist'));
-
 	var Wishlist = $scope.wishlist;
-
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
-
 	// walmart api public key
 	$scope.publicKey = 'bd3q9g624ym5mrk9ad75ntfw';
-
-
 	// loading spinner
 	$scope.loading = true;
 	
-
 	// fetch data from the api, based on search
 	function fetch(){
 		$scope.loading = true;
@@ -57,11 +51,12 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	// Detail view functionality
 
-	$scope.showModal = false;
-
+	// $scope.showModal = false;
 	$scope.detailView = function(clickedToy){
 		// console.log(clickedToy.$id);
 		$scope.toyDetail = clickedToy
+		// set featured image
+		$scope.featImage = $scope.toyDetail.largeImage;
 		$scope.showModal = true;
 
 		console.log($scope.toyDetail);
@@ -69,6 +64,10 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	$scope.closeDetailView = function(){
 		$scope.showModal = false;
+	}
+
+	$scope.showImage = function(clickedThumbnail){
+		$scope.featImage = clickedThumbnail.largeImage;
 	}
 
 }]);
