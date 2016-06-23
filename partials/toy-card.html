@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-6 col-md-4 toy-card" ng-repeat="toy in toys">
 	<div class="toy-card-inner">
-		<div ng-click="detailView(toy)" class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');" ng-if="toy.thumbnailImage"></div>
+		<div ng-click="detailView(toy)" data-toggle="modal" data-target="#detailModal" class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');" ng-if="toy.thumbnailImage"></div>
 		<h5 ng-click="detailView(toy)"><b>{{toy.name}}</b></h5>
 		<b>${{toy.salePrice}}</b>
 		<br>
