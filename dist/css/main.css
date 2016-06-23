@@ -242,7 +242,7 @@ button.secondary {
   padding-top: 20px;
 }
 
-.modal-dialog .modal-content .toy-photo img {
+.modal-dialog .modal-content .toy-photo .featured-img {
   left: 50%;
   max-width: 70%;
   position: relative;

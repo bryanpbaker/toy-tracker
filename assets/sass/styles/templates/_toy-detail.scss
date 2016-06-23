@@ -15,11 +15,17 @@
 		.toy-photo{
 			padding-top: 20px;
 
-			img{
+			.featured-img{
 				left: 50%;
 				max-width: 70%;
 				position: relative;
 				transform: translateX(-50%);
+			}
+
+			.thumbnail{
+				img{
+					
+				}
 			}
 
 			@media(max-width: $screen-xs-max){
