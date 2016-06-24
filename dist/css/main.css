@@ -12,6 +12,11 @@ html {
   padding-top: 50px;
 }
 
+.error {
+  color: red;
+  font-weight: bold;
+}
+
 h1 {
   font-size: 2.33em;
   margin-bottom: 20px;
@@ -264,6 +269,11 @@ button.secondary {
 .modal-dialog .modal-content .purchase-link {
   display: block;
   margin-top: 10px;
+}
+
+.dashboard h3 {
+  margin-bottom: 25px;
+  margin-top: 0;
 }
 
 .toy-card {

@@ -3,7 +3,7 @@
 		<div class="panel col-sm-6 col-sm-offset-3" style="margin-top: 50px;" ng-controller="RegisterController as regCtrl"> 
 			<h2>Sign Up</h2>
 			<div ng-show="regCtrl.error">
-			  <span>{{ regCtrl.error.message }}</span>
+			  <span class="error">{{ regCtrl.error.message }}</span>
 			</div>
 			<form ng-submit="regCtrl.register(null, regCtrl.user.name, regCtrl.user.age, regCtrl.user.email, regCtrl.user.password);">
 				<input type="text" class="form-control" placeholder="Name" ng-model="regCtrl.user.name">
@@ -12,10 +12,6 @@
 		    	<input type="password" class="form-control" placeholder="Password" ng-model="regCtrl.user.password">
 		  		<input type="submit" value="Register">
 			</form>	
-
-			<ul>
-				<li ng-repeat="user in regCtrl.users">{{name}}</li>
-			</ul>
 		</div>
 	</div>
 </div>

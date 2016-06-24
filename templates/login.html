@@ -3,7 +3,7 @@
 		<div class="panel col-sm-6 col-sm-offset-3" style="margin-top: 50px;" ng-controller="AuthController as authCtrl"> 
 			<h2>Log In</h2>
 			<div ng-show="authCtrl.error">
-			  <span>{{ authCtrl.error.message }}</span>
+			  <span class="error">{{ authCtrl.error.message }}</span>
 			</div>
 			<form ng-submit="authCtrl.login()">
 		    	<input type="email" class="form-control" placeholder="Email" ng-model="authCtrl.user.email">

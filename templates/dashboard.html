@@ -1,15 +1,31 @@
 <div class="dashboard">
-	<div class="container">
-		<h1>My Profile</h1>
-		
-		<h3>First time? Create your profile</h3>
+	<h1>My Profile</h1>
+	
+	<div class="col-md-7">
 		<form ng-submit="saveProfile()">
-			{{profile.name}}
-			<br>
-			{{profile.age}}
-			<br>
-			{{profile.email}}
-			<input type="submit">
+
+			<div class="form-group">
+				<label for="name">Your Name:</label>
+				<h3 class="name" ng-hide="editMode">{{profile.name}}</h3>
+				<input ng-show="editMode" type="text" ng-model="profile.name" class="form-control input-lg" id="name" placeholder="{{profile.name}}">
+			</div>
+			<div class="form-group">
+				<label for="age">Your Age:</label>
+				<h3 class="name" ng-hide="editMode">{{profile.age}}</h3>
+				<input ng-show="editMode" type="text" ng-model="profile.age" class="form-control" id="age" placeholder="{{profile.age}}">
+			</div>
+			<div class="form-group">
+				<label for="email">Your Email:</label>
+				<h3 class="name" ng-hide="editMode">{{profile.email}}</h3>
+				<input ng-show="editMode" type="email" ng-model="profile.email" class="form-control" id="age" placeholder="{{profile.email}}">
+			</div>
+			<div class="form-group">
+				<label for="favToy">Your Favorite Characters:</label>
+				<h3 class="favToy" ng-hide="editMode">{{profile.favoriteCharacters}}</h3>
+				<input ng-show="editMode" type="text" ng-model="profile.favoriteCharacters" class="form-control" id="age" placeholder="{{profile.favoriteCharacters}}">
+			</div>
+			<a style="margin-top: 15px;" ng-click="editProfile()" class="btn secondary">Edit Profile</a>
+			<button class="btn primary">Save</button>
 		</form>
 	</div>
 	
