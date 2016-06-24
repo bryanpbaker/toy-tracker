@@ -124,13 +124,13 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 
 	// add toy to the wishlist array
-	$scope.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+	$scope.addToWishlist = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
 		$scope.addingToy = true;
 
 		Wishlist.$add({
 			name: toyName,
 			price: toyPrice,
-			onWishlist: onWishlist,
+			itemId: itemId,
 			thumbnailImage: toyThumbnail,
 			reviewImage: toyReviewImage
 		}).then(function() {
@@ -150,7 +150,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 		$scope.featImage = $scope.toyDetail.largeImage;
 		$scope.showModal = true;
 
-		console.log($scope.toyDetail);
+		console.log(clickedToy);
 	}
 
 	$scope.closeDetailView = function(){
@@ -165,8 +165,6 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 toyTrackerApp.controller('ToyController', ['toyService', '$scope', function(toyService, $scope) {
 
 	$scope.toyDetail = toyService.clickedToy;
-
-	console.log($scope.toyDetail);
 
 }]);
 toyTrackerApp.controller('UsersController', ['$scope', '$firebaseObject', 'setProfile', 'usersService', function($scope, $firebaseObject, setProfile, usersService) {

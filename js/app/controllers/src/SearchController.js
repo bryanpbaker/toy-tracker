@@ -33,13 +33,13 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 
 	// add toy to the wishlist array
-	$scope.addToWishlist = function(toyName, toyPrice, onWishlist, toyThumbnail, toyReviewImage) {
+	$scope.addToWishlist = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
 		$scope.addingToy = true;
 
 		Wishlist.$add({
 			name: toyName,
 			price: toyPrice,
-			onWishlist: onWishlist,
+			itemId: itemId,
 			thumbnailImage: toyThumbnail,
 			reviewImage: toyReviewImage
 		}).then(function() {
@@ -59,7 +59,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 		$scope.featImage = $scope.toyDetail.largeImage;
 		$scope.showModal = true;
 
-		console.log($scope.toyDetail);
+		console.log(clickedToy);
 	}
 
 	$scope.closeDetailView = function(){

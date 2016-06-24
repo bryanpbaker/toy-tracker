@@ -2,6 +2,4 @@ toyTrackerApp.controller('ToyController', ['toyService', '$scope', function(toyS
 
 	$scope.toyDetail = toyService.clickedToy;
 
-	console.log($scope.toyDetail);
-
 }]);
