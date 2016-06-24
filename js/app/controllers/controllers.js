@@ -25,15 +25,6 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 }]);
 
 
-toyTrackerApp.controller('DashboardController', ['$state', 'authService', '$scope', '$firebaseArray', function($state, authService, $scope, $firebaseArray) {
-
-	var dashboardCtrl = this;
-
-	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/');
-	$scope.wishlist = $firebaseArray(ref);
-
-}]);
-
 toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'wishlistService', function($scope, $state, authService, wishlistService) {
 
 	$scope.logout = function() {
@@ -178,6 +169,26 @@ toyTrackerApp.controller('ToyController', ['toyService', '$scope', function(toyS
 	console.log($scope.toyDetail);
 
 }]);
+toyTrackerApp.controller('UsersController', ['$scope', '$firebaseObject', 'setProfile', 'usersService', function($scope, $firebaseObject, setProfile, usersService) {
+
+	var usersCtrl = this;
+	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid );
+	$scope.profile = $firebaseObject(ref.child('profile'));
+
+	$scope.profile.name = usersService.userName;
+	$scope.profile.age = usersService.userAge;
+	$scope.profile.email = usersService.userEmail;
+	$scope.profile.$save();
+
+	$scope.saveProfile = function(){
+		$scope.profile.$save().then(function(response){
+			alert('Your profile has been saved!');
+		});
+	}
+
+
+}]);
+
 toyTrackerApp.controller('WishlistController', ['$scope', '$firebaseArray', 'wishlistService', 'setWishlist', function($scope, $firebaseArray, wishlistService, setWishlist) {
 
 		// $scope.wishlist = wishlistService.wishlist;

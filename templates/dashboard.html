@@ -1,6 +1,16 @@
 <div class="dashboard">
 	<div class="container">
 		<h1>My Profile</h1>
+		
+		<h3>First time? Create your profile</h3>
+		<form ng-submit="saveProfile()">
+			{{profile.name}}
+			<br>
+			{{profile.age}}
+			<br>
+			{{profile.email}}
+			<input type="submit">
+		</form>
 	</div>
 	
 
