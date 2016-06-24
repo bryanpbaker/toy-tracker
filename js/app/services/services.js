@@ -15,7 +15,7 @@ toyTrackerApp.service('toyService', [function() {
 
 }]);
 
-toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function($firebaseArray, FirebaseUrl) {
+toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', '$firebaseObject', function($firebaseArray, FirebaseUrl, $firebaseObject) {
 
 	// add new user to users in db
 	this.createProfile = function(uid, name, age, email, password) {
@@ -24,9 +24,13 @@ toyTrackerApp.service('usersService', ['$firebaseArray', 'FirebaseUrl', function
 		this.users = $firebaseArray(this.usersRef);
 		this.users.$add();
 
-		this.userName = name;
-		this.userAge = age;
-		this.userEmail = email;
+		var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + uid );
+		this.profile = $firebaseObject(ref.child('profile'));
+
+		this.profile.name = name,
+		this.profile.age = age,
+		this.profile.email = email
+		this.profile.$save();
 	};
 
 }]);
