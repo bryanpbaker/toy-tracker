@@ -3,6 +3,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
 	$scope.wishlist = $firebaseArray(ref.child('wishlist'));
 	var Wishlist = $scope.wishlist;
+	$scope.myToys = $firebaseArray(ref.child('my-toys'));
+	var MyToys = $scope.myToys;
+
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
@@ -11,6 +14,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	// loading spinner
 	$scope.loading = true;
 	
+
+
+
 	// fetch data from the api, based on search
 	function fetch(){
 		$scope.loading = true;
@@ -32,7 +38,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	}); 
 
 
-	// add toy to the wishlist array
+
+
+	// add toy to wishlist
 	$scope.addToWishlist = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
 		$scope.addingToy = true;
 
@@ -48,6 +56,8 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 			}, 800);
 		});
 	}
+
+
 
 	// Detail view functionality
 
@@ -69,5 +79,24 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	$scope.showImage = function(clickedThumbnail){
 		$scope.featImage = clickedThumbnail.largeImage;
 	}
+
+
+	// add toy to my toys
+	$scope.addToMyToys = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
+		$scope.addingToy = true;
+
+		MyToys.$add({
+			name: toyName,
+			price: toyPrice,
+			itemId: itemId,
+			thumbnailImage: toyThumbnail,
+			reviewImage: toyReviewImage
+		}).then(function() {
+			$timeout(function() {
+				$scope.addingToy = false;
+			}, 800);
+		});
+	}
+
 
 }]);

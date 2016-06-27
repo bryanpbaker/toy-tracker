@@ -25,6 +25,25 @@ toyTrackerApp.controller('AuthController', ['$scope', '$state', 'authService', '
 }]);
 
 
+toyTrackerApp.controller('MyToysController', ['$scope', '$firebaseArray', 'setMyToys', function($scope, $firebaseArray, setMyToys) {
+
+		// $scope.wishlist = wishlistService.wishlist;
+
+		var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
+		$scope.myToys = $firebaseArray(ref.child('my-toys'));
+
+
+
+		// bind removeFromWishlist to $scope
+		$scope.removeFromWishlist = function(id) {
+			// wishlistService.removeFromWishlist(id);
+			if(confirm('Are you sure you want to remove this toy?') === true) {
+				$scope.myToys.$remove(id);
+			}
+		};
+
+
+}]);
 toyTrackerApp.controller('NavController', ['$scope', '$state', 'authService', 'wishlistService', function($scope, $state, authService, wishlistService) {
 
 	$scope.logout = function() {
@@ -94,6 +113,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	var ref = new Firebase('https://toy-tracker-app.firebaseio.com/users/' + authData.uid);
 	$scope.wishlist = $firebaseArray(ref.child('wishlist'));
 	var Wishlist = $scope.wishlist;
+	$scope.myToys = $firebaseArray(ref.child('my-toys'));
+	var MyToys = $scope.myToys;
+
 
 	// set the default search term
 	$scope.searchTerm = 'Action Figure';
@@ -102,6 +124,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	// loading spinner
 	$scope.loading = true;
 	
+
+
+
 	// fetch data from the api, based on search
 	function fetch(){
 		$scope.loading = true;
@@ -123,7 +148,9 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	}); 
 
 
-	// add toy to the wishlist array
+
+
+	// add toy to wishlist
 	$scope.addToWishlist = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
 		$scope.addingToy = true;
 
@@ -139,6 +166,8 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 			}, 800);
 		});
 	}
+
+
 
 	// Detail view functionality
 
@@ -160,6 +189,25 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 	$scope.showImage = function(clickedThumbnail){
 		$scope.featImage = clickedThumbnail.largeImage;
 	}
+
+
+	// add toy to my toys
+	$scope.addToMyToys = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
+		$scope.addingToy = true;
+
+		MyToys.$add({
+			name: toyName,
+			price: toyPrice,
+			itemId: itemId,
+			thumbnailImage: toyThumbnail,
+			reviewImage: toyReviewImage
+		}).then(function() {
+			$timeout(function() {
+				$scope.addingToy = false;
+			}, 800);
+		});
+	}
+
 
 }]);
 toyTrackerApp.controller('ToyController', ['toyService', '$scope', function(toyService, $scope) {

@@ -3,11 +3,10 @@
 		<div ng-click="detailView(toy)" data-toggle="modal" data-target="#detailModal" class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');" ng-if="toy.thumbnailImage"></div>
 		<h5 ng-click="detailView(toy)"><b>{{toy.name}}</b></h5>
 		<b>${{toy.salePrice}}</b>
-		{{toy.itemId}}
 		<br>
 		<img class="customer-rating-image" src="{{toy.customerRatingImage}}" alt="">
 		<br>
 		<button ng-click="addToWishlist(toy.name, toy.salePrice, toy.itemId, toy.thumbnailImage, toy.customerRatingImage ? toy.customerRatingImage : null)" class="secondary"><i class="fa fa-plus"></i> Add to Wishlist</button>
-		<button class="primary"><i class="fa fa-check"></i> Have it!</button>	
+		<button ng-click="addToMyToys(toy.name, toy.salePrice, toy.itemId, toy.thumbnailImage, toy.customerRatingImage ? toy.customerRatingImage : null)" class="primary"><i class="fa fa-check"></i> Have it!</button>	
 	</div>
 </div>

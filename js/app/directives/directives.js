@@ -1,3 +1,11 @@
+toyTrackerApp.directive('myToysCard', function() {
+
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/my-toys-card.html'
+    }
+
+});
 toyTrackerApp.directive('selectOnClick', ['$window', function ($window) {
     return {
         restrict: 'A',
