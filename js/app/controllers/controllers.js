@@ -193,7 +193,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 
 	// add toy to my toys
 	$scope.addToMyToys = function(toyName, toyPrice, itemId, toyThumbnail, toyReviewImage) {
-		$scope.addingToy = true;
+		$scope.haveToy = true;
 
 		MyToys.$add({
 			name: toyName,
@@ -203,7 +203,7 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 			reviewImage: toyReviewImage
 		}).then(function() {
 			$timeout(function() {
-				$scope.addingToy = false;
+				$scope.haveToy = false;
 			}, 800);
 		});
 	}
