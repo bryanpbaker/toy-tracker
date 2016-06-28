@@ -36,11 +36,15 @@ toyTrackerApp.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
+      controller: 'UsersController',
       resolve: {
         auth: function($state, authService){
           return authService.auth.$requireAuth().catch(function(){
             $state.go('login');
           });
+        },
+        setProfile: function(authService){
+          return authData = authService.auth.$getAuth();
         }
       }
     })

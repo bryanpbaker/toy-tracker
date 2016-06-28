@@ -6,10 +6,15 @@
 		<div ng-if="toy.thumbnailImage" class="thumbnail-image" style="background: url('{{toy.thumbnailImage}}');"></div>
 		<h5><b>{{toy.name}}</b></h5>
 		<b>${{toy.price}}</b>
-		<h5>{{toy.$index}}</h5>
 		<br>
 		<img src="{{toy.reviewImage}}" alt="" ng-if="toy.reviewImage">
 		<br>
+		<button ng-click="addToMyToys(toy.name, toy.price, toy.itemId, toy.thumbnailImage, toy.customerRatingImage ? toy.customerRatingImage : null, id)" class="btn-success">Have it!</button>
 		<button ng-click="removeFromWishlist(id)" class="btn-danger"><i class="fa fa-close"></i> Remove from Wishlist</button>
 	</div>
+</div>
+
+
+<div class="adding got-it" ng-class="{'in': haveToy}" ng-show="haveToy">
+	<h4><i class="fa fa-cog fa-spin fa-fw"></i> You got it! Awesome!</h4>
 </div>
