@@ -282,6 +282,10 @@ footer {
   margin-top: 0;
 }
 
+.dashboard a {
+  cursor: pointer;
+}
+
 .toy-card {
   margin-bottom: 50px;
 }

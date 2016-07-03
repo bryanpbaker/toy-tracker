@@ -41,7 +41,9 @@
 				<img ng-src="{{toyDetail.customerRatingImage}}" alt="">&nbsp; <small>{{toyDetail.numReviews}}</small>
 				<br>
 				<p>{{toyDetail.shortDescription}}</p>
-				<button ng-click="addToWishlist(toyDetail.name, toyDetail.salePrice, true, toyDetail.thumbnailImage, toyDetail.customerRatingImage ? toyDetail.customerRatingImage : null); closeDetailView()" class="secondary" data-dismiss="modal"><i class="fa fa-plus"></i> Add to Wishlist</button>
+				<button ng-click="addToWishlist(toyDetail.name, toyDetail.salePrice, true, toyDetail.thumbnailImage, toyDetail.customerRatingImage ? toyDetail.customerRatingImage : null); closeDetailView()" class="btn-primary" data-dismiss="modal"><i class="fa fa-plus"></i> Add to Wishlist</button>
+				<br>
+				<button ng-click="addToMyToys(toyDetail.name, toyDetail.salePrice, toyDetail.itemId, toyDetail.thumbnailImage, toyDetail.customerRatingImage ? toyDetail.customerRatingImage : null); closeDetailView()" class="btn-success" data-dismiss="modal"><i class="fa fa-check"></i> Have it!</button>	
 				<br>
 				<small class="purchase-link"><a href="{{toyDetail.addToCartUrl}}" target="_blank">Purchase from Walmart.com</a></small>
 			</div>

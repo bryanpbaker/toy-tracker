@@ -24,8 +24,8 @@
 				<h3 class="favToy" ng-hide="editMode">{{profile.favoriteCharacters}}</h3>
 				<input ng-show="editMode" type="text" ng-model="profile.favoriteCharacters" class="form-control" id="age" placeholder="{{profile.favoriteCharacters}}">
 			</div>
-			<a style="margin-top: 15px;" ng-click="editProfile()" class="btn secondary">Edit Profile</a>
-			<button class="btn primary">Save</button>
+			<a ng-hide="editMode" style="margin-top: 15px;" ng-click="editProfile()" class="">Edit Profile</a>
+			<button ng-show="editMode" class="btn-primary btn-lg">Save</button>
 		</form>
 	</div>
 	
