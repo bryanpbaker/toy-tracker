@@ -24,8 +24,6 @@ toyTrackerApp.controller('SearchController', ['$scope', '$http', 'wishlistServic
 		$http.jsonp('http://api.walmartlabs.com/v1/search?apiKey=' + $scope.publicKey + '&query=' + $scope.searchTerm + '&categoryId=4171&facets=on&facet.filter=gender:Boys&numItems=25&sort=bestseller&callback=JSON_CALLBACK')
 		.then(function(response){ 
 			$scope.toys = response.data.items;
-
-			// console.log(response);
 		})
 		.finally(function() {
 			$scope.loading = false;
