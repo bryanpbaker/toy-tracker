@@ -49,3 +49,8 @@ button{
         color: $secondary;
     }
 }
+
+.btn-primary, .btn-secondary, .btn-danger, .btn-success{
+    border: none;
+    padding: 10px;
+}

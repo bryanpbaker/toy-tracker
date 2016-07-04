@@ -96,6 +96,11 @@ button.secondary {
   color: #f9690e;
 }
 
+.btn-primary, .btn-secondary, .btn-danger, .btn-success {
+  border: none;
+  padding: 10px;
+}
+
 .header {
   height: 120px;
   background: #4183d7;
