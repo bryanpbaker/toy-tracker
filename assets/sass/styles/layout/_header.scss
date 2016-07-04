@@ -1,11 +1,15 @@
 .header{
+	height: 120px;
 	background: $primary;
-	height: $navbar-height;
+
+	@media(min-width: 534px){
+		height: $navbar-height;
+	}
 
 	.navbar{
 		height: $navbar-height;
 		margin: 0;
-		
+	
 		.logo{
 			height: $navbar-height;
 			a{
@@ -28,11 +32,29 @@
 		}
 
 		.main-nav{
-			height: 100%;
+			@media(min-width: 534px){
+				height: 100%;
+			}
+
+			@media(max-width: 533px){
+				float: left !important;
+
+				ul{
+					margin-top: 15px;
+
+					li{
+						margin-left: 0;
+						margin-right: 15px;
+					}
+				}
+					
+			}
 
 			ul{
 				@include vertical-align-element();
 				margin-bottom: 0;
+				padding-left: 0;
+
 			}
 
 			li{

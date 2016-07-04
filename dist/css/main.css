@@ -97,8 +97,14 @@ button.secondary {
 }
 
 .header {
+  height: 120px;
   background: #4183d7;
-  height: 80px;
+}
+
+@media (min-width: 534px) {
+  .header {
+    height: 80px;
+  }
 }
 
 .header .navbar {
@@ -131,8 +137,23 @@ button.secondary {
   margin-top: -5px;
 }
 
-.header .navbar .main-nav {
-  height: 100%;
+@media (min-width: 534px) {
+  .header .navbar .main-nav {
+    height: 100%;
+  }
+}
+
+@media (max-width: 533px) {
+  .header .navbar .main-nav {
+    float: left !important;
+  }
+  .header .navbar .main-nav ul {
+    margin-top: 15px;
+  }
+  .header .navbar .main-nav ul li {
+    margin-left: 0;
+    margin-right: 15px;
+  }
 }
 
 .header .navbar .main-nav ul {
@@ -141,6 +162,7 @@ button.secondary {
   top: 50%;
   transform: translateY(-50%);
   margin-bottom: 0;
+  padding-left: 0;
 }
 
 .header .navbar .main-nav li {
